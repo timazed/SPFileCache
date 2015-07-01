@@ -10,6 +10,17 @@
 		22264FC91B27D00F000B7B17 /* SPFileCache.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 22264FC81B27D00F000B7B17 /* SPFileCache.h */; };
 		22264FCB1B27D00F000B7B17 /* SPFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FCA1B27D00F000B7B17 /* SPFileCache.m */; };
 		22264FD11B27D00F000B7B17 /* libSPFileCache.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22264FC51B27D00F000B7B17 /* libSPFileCache.a */; };
+		22264FE31B294F6B000B7B17 /* NSData+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FE21B294F6B000B7B17 /* NSData+Extensions.m */; };
+		22264FE71B391A6F000B7B17 /* SPLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FE61B391A6F000B7B17 /* SPLinkedList.m */; };
+		22264FEA1B391CA0000B7B17 /* SPRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FE91B391CA0000B7B17 /* SPRecord.m */; };
+		22264FF11B392839000B7B17 /* SPLRUCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FF01B392839000B7B17 /* SPLRUCache.m */; };
+		22264FF71B395533000B7B17 /* SPSecurityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FF61B395533000B7B17 /* SPSecurityStore.m */; };
+		2261DCBA1B428B6D00C470B4 /* NSData+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FE21B294F6B000B7B17 /* NSData+Extensions.m */; };
+		2261DCBF1B43C4FE00C470B4 /* SPNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DCBE1B43C4FE00C470B4 /* SPNode.m */; };
+		2262A4DE1B40A19000AFFCF9 /* SPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */; };
+		2262A4E11B412EB800AFFCF9 /* SPFileCahceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */; };
+		2262A4E41B42519000AFFCF9 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */; };
+		8462981B892C42BD81B21C8B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E71145F5944A4DB05160DA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +52,27 @@
 		22264FCA1B27D00F000B7B17 /* SPFileCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPFileCache.m; sourceTree = "<group>"; };
 		22264FD01B27D00F000B7B17 /* SPFileCacheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SPFileCacheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22264FD61B27D00F000B7B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22264FE11B294F6B000B7B17 /* NSData+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Extensions.h"; sourceTree = "<group>"; };
+		22264FE21B294F6B000B7B17 /* NSData+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Extensions.m"; sourceTree = "<group>"; };
+		22264FE51B391A6F000B7B17 /* SPLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLinkedList.h; sourceTree = "<group>"; };
+		22264FE61B391A6F000B7B17 /* SPLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLinkedList.m; sourceTree = "<group>"; };
+		22264FE81B391CA0000B7B17 /* SPRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRecord.h; sourceTree = "<group>"; };
+		22264FE91B391CA0000B7B17 /* SPRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRecord.m; sourceTree = "<group>"; };
+		22264FEF1B392839000B7B17 /* SPLRUCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPLRUCache.h; sourceTree = "<group>"; };
+		22264FF01B392839000B7B17 /* SPLRUCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPLRUCache.m; sourceTree = "<group>"; };
+		22264FF51B395533000B7B17 /* SPSecurityStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSecurityStore.h; sourceTree = "<group>"; };
+		22264FF61B395533000B7B17 /* SPSecurityStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSecurityStore.m; sourceTree = "<group>"; };
+		2261DCBC1B43C4B100C470B4 /* SPNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPNode.h; sourceTree = "<group>"; };
+		2261DCBE1B43C4FE00C470B4 /* SPNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNode.m; sourceTree = "<group>"; };
+		2262A4DA1B3F7E7E00AFFCF9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2262A4DB1B3F7F4E00AFFCF9 /* SPFileCache+Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPFileCache+Prefix.pch"; sourceTree = "<group>"; };
+		2262A4DC1B40A19000AFFCF9 /* SPCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCacheManager.h; sourceTree = "<group>"; };
+		2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCacheManager.m; sourceTree = "<group>"; };
+		2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFileCahceTest.m; sourceTree = "<group>"; };
+		2262A4E21B42519000AFFCF9 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
+		2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
+		31E71145F5944A4DB05160DA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8462981B892C42BD81B21C8B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +95,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1325094831BC4D689C599EED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31E71145F5944A4DB05160DA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		22264FBC1B27D00F000B7B17 = {
 			isa = PBXGroup;
 			children = (
 				22264FC71B27D00F000B7B17 /* SPFileCache */,
 				22264FD41B27D00F000B7B17 /* SPFileCacheTests */,
 				22264FC61B27D00F000B7B17 /* Products */,
+				DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */,
+				1325094831BC4D689C599EED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,8 +126,13 @@
 		22264FC71B27D00F000B7B17 /* SPFileCache */ = {
 			isa = PBXGroup;
 			children = (
+				22264FEB1B391CA8000B7B17 /* Util */,
+				22264FDF1B294EEB000B7B17 /* Categories */,
+				2262A4DF1B40A4FE00AFFCF9 /* Security */,
+				2261DCC01B43D7A900C470B4 /* Cache */,
 				22264FC81B27D00F000B7B17 /* SPFileCache.h */,
 				22264FCA1B27D00F000B7B17 /* SPFileCache.m */,
+				2262A4DB1B3F7F4E00AFFCF9 /* SPFileCache+Prefix.pch */,
 			);
 			path = SPFileCache;
 			sourceTree = "<group>";
@@ -93,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				22264FD51B27D00F000B7B17 /* Supporting Files */,
+				2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */,
 			);
 			path = SPFileCacheTests;
 			sourceTree = "<group>";
@@ -105,6 +154,51 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		22264FDF1B294EEB000B7B17 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				22264FE11B294F6B000B7B17 /* NSData+Extensions.h */,
+				22264FE21B294F6B000B7B17 /* NSData+Extensions.m */,
+				2262A4E21B42519000AFFCF9 /* NSString+Extensions.h */,
+				2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		22264FEB1B391CA8000B7B17 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				22264FE51B391A6F000B7B17 /* SPLinkedList.h */,
+				22264FE61B391A6F000B7B17 /* SPLinkedList.m */,
+				2262A4DA1B3F7E7E00AFFCF9 /* Constants.h */,
+				2261DCBC1B43C4B100C470B4 /* SPNode.h */,
+				2261DCBE1B43C4FE00C470B4 /* SPNode.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		2261DCC01B43D7A900C470B4 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				22264FEF1B392839000B7B17 /* SPLRUCache.h */,
+				22264FF01B392839000B7B17 /* SPLRUCache.m */,
+				22264FE81B391CA0000B7B17 /* SPRecord.h */,
+				22264FE91B391CA0000B7B17 /* SPRecord.m */,
+				2262A4DC1B40A19000AFFCF9 /* SPCacheManager.h */,
+				2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		2262A4DF1B40A4FE00AFFCF9 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				22264FF51B395533000B7B17 /* SPSecurityStore.h */,
+				22264FF61B395533000B7B17 /* SPSecurityStore.m */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22264FD91B27D00F000B7B17 /* Build configuration list for PBXNativeTarget "SPFileCache" */;
 			buildPhases = (
+				36E91A334C3B4A55AB93506B /* Check Pods Manifest.lock */,
 				22264FC11B27D00F000B7B17 /* Sources */,
 				22264FC21B27D00F000B7B17 /* Frameworks */,
 				22264FC31B27D00F000B7B17 /* CopyFiles */,
+				AAC25FE747AB43F98A75AF88 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,12 +284,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36E91A334C3B4A55AB93506B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AAC25FE747AB43F98A75AF88 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		22264FC11B27D00F000B7B17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				22264FCB1B27D00F000B7B17 /* SPFileCache.m in Sources */,
+				22264FE31B294F6B000B7B17 /* NSData+Extensions.m in Sources */,
+				2262A4E41B42519000AFFCF9 /* NSString+Extensions.m in Sources */,
+				22264FE71B391A6F000B7B17 /* SPLinkedList.m in Sources */,
+				2262A4DE1B40A19000AFFCF9 /* SPCacheManager.m in Sources */,
+				22264FEA1B391CA0000B7B17 /* SPRecord.m in Sources */,
+				22264FF11B392839000B7B17 /* SPLRUCache.m in Sources */,
+				2261DCBF1B43C4FE00C470B4 /* SPNode.m in Sources */,
+				22264FF71B395533000B7B17 /* SPSecurityStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +338,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2261DCBA1B428B6D00C470B4 /* NSData+Extensions.m in Sources */,
+				2262A4E11B412EB800AFFCF9 /* SPFileCahceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +434,9 @@
 		};
 		22264FDA1B27D00F000B7B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */;
 			buildSettings = {
+				GCC_PREFIX_HEADER = "SPFileCache/SPFileCache+Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -304,7 +445,9 @@
 		};
 		22264FDB1B27D00F000B7B17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */;
 			buildSettings = {
+				GCC_PREFIX_HEADER = "SPFileCache/SPFileCache+Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -325,6 +468,12 @@
 				);
 				INFOPLIST_FILE = SPFileCacheTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -339,6 +488,12 @@
 				);
 				INFOPLIST_FILE = SPFileCacheTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -362,6 +517,7 @@
 				22264FDB1B27D00F000B7B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22264FDC1B27D00F000B7B17 /* Build configuration list for PBXNativeTarget "SPFileCacheTests" */ = {
 			isa = XCConfigurationList;
@@ -370,6 +526,7 @@
 				22264FDE1B27D00F000B7B17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
