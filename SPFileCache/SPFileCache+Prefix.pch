@@ -11,9 +11,14 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-#import "Constants.h"
-#import <Bolts/Bolts.h>
 #import "NSString+Extensions.h"
 #import "NSData+Extensions.h"
+
+#ifdef DEBUG
+#define DLog(...) NSLog(__VA_ARGS__)
+#else
+#define DLog(...) /* */
+#endif
+
 
 #endif

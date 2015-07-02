@@ -14,17 +14,16 @@
 
 @property(nonatomic, strong) dispatch_queue_t sessionQueue;
 
-//-(BFTask *)createFoldersAt:(NSString*)path currDepth:(int)currDepth maxDepth:(int)maxDepth;
-//-(NSString *)mkDirAt:(NSString*)path folderID:(int)folderID;
 -(NSArray *)recordsAtPath:(NSString *)path;
+-(void)ensureFolderExists:(NSString *)path;
 
 @end
 
 @implementation SPCacheManager
 
-//#define kMaxDepth 2
-#define kManifestFile @"mainfest.json"
-#define kDefaultCacheMaxSize (1024 * 1024 * 1024) * 1 // 1GB
+#define kHiddenDir @".SPINFO"
+#define kManifestFile @"MANIFEST.DAT"
+#define kDefaultCacheMaxSize (1024 * 1024 * 1024) * 2 // 2 GB
 #define kMaxSizeMetadataKey @"maxsize"
 #define kMaxNumFolders 256
 
@@ -62,6 +61,7 @@ static dispatch_once_t onceToken;
 
 -(SPLRUCache *)loadLRUCacheAtPath:(NSString *)path
 {
+    //Note: Could be a potential bottle neck when the cache is huge. Potentially dispatch to separate threads to spead it up.
     NSMutableArray *records = [NSMutableArray array];
     for (int i=0; i<kMaxNumFolders; i++) {
         NSString *rootPath = [path stringByAppendingPathComponent: [NSString hexStringFromInt:i]];
@@ -90,7 +90,17 @@ static dispatch_once_t onceToken;
 {
     NSUInteger maxSize = kDefaultCacheMaxSize;
     if ([self cacheExists:path]) {
-        
+        NSString *manifest = [[path stringByAppendingPathComponent:kHiddenDir]
+                                    stringByAppendingPathComponent:kManifestFile];
+
+        NSData *data = [NSData dataWithContentsOfFile:manifest];
+        if (data != nil) {
+            NSUInteger tmpMaxSize;
+            [data getBytes:&tmpMaxSize length:sizeof(maxSize)];
+            if (tmpMaxSize > 0) {
+                maxSize = tmpMaxSize;
+            }
+        }
     }
     return maxSize;
 }
@@ -98,53 +108,18 @@ static dispatch_once_t onceToken;
 -(void)setMaxCacheSize:(NSUInteger)maxSize atPath:(NSString *)path
 {
     if ([self cacheExists:path]) {
-        NSData *mainfest = [NSJSONSerialization dataWithJSONObject:@{kMaxSizeMetadataKey: @(maxSize)}
-                                                           options:0
-                                                             error:nil];
-
-        [mainfest writeToFile:[path stringByAppendingPathComponent:kManifestFile] atomically:YES];
+        NSString *mainfestFolder = [path stringByAppendingPathComponent:kHiddenDir];
+        [self ensureFolderExists:mainfestFolder];
+        NSData *data = [NSData dataWithBytes:&maxSize length:sizeof(maxSize)];
+        [data writeToFile:[mainfestFolder stringByAppendingPathComponent:kManifestFile] atomically:YES];
     }
 }
-
 
 //===========================================================
 // PRIVATE METHODS
 //===========================================================
 #pragma mark -
 #pragma Private Methods
-//-(BFTask *)createFoldersAt:(NSString*)path currDepth:(int)currDepth maxDepth:(int)maxDepth
-//{
-//    if (currDepth == maxDepth) {
-//        return nil;
-//    }
-//    BFExecutor *executor = [BFExecutor executorWithDispatchQueue:self.sessionQueue];
-//    NSMutableArray *tasks = [NSMutableArray array];
-//    for (int i=0; i<kMaxNumFolders; i++) {
-//        [tasks addObject:[[BFTask taskFromExecutor:executor withBlock:^id{
-//            NSString *folder = [self mkDirAt:path folderID:i];
-//            BFTaskCompletionSource *source = [BFTaskCompletionSource taskCompletionSource];
-//            [source setResult:folder];
-//            return source.task;
-//        }] continueWithBlock:^id(BFTask *task) {
-//            return [self createFoldersAt: task.result currDepth:currDepth + 1  maxDepth:maxDepth];
-//        }]];
-//    }
-//    NSLog(@"%d", tasks.count);
-//    return [BFTask taskForCompletionOfAllTasks:tasks];
-//}
-//
-//-(NSString *)mkDirAt:(NSString*)path folderID:(int)folderID
-//{
-//    NSFileManager *fileManager = [NSFileManager defaultManager];
-//    NSString *folder = [path stringByAppendingPathComponent:[NSString stringWithFormat:kIntToHex, folderID]];
-//    [fileManager createDirectoryAtPath:folder
-//           withIntermediateDirectories:YES
-//                            attributes:nil
-//                                 error:nil];
-//    
-//    return folder;
-//}
-
 -(NSArray *)recordsAtPath:(NSString *)path
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -157,6 +132,14 @@ static dispatch_once_t onceToken;
         }
     }
     return records;
+}
+
+-(void)ensureFolderExists:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:path]) {
+        [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
 }
 
 

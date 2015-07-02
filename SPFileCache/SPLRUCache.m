@@ -16,7 +16,6 @@
 @property(nonatomic, strong) NSMutableDictionary *recordRegistry;
 @property(nonatomic, strong) SPLinkedList *orderedRecords;
 
-//-(SPNode *)nodeForObjectID:(NSData *) objectID;
 -(void)setNode:(SPNode*)node withID:(NSData*)objectID;
 
 @end
@@ -72,21 +71,8 @@
 
 #pragma mark - 
 #pragma mark Private Methods
-
-//-(SPNode*)nodeForObjectID:(NSData *) objectID
-//{
-//    SPNode *node = self.recordRegistry[objectID];
-//    SPNode *node = NULL;
-//    if (item != nil) {
-//        node = [item pointerValue];
-////        [item getValue:&node];
-//    }
-//    return node;
-//}
-
 -(void)setNode:(SPNode *)node withID:(NSData *)objectID
 {
-//    NSValue *item =  [NSValue valueWithPointer:node];//[NSValue valueWithBytes:&node objCType:@encode(SPNode)];
     SPNode *existingNode = self.recordRegistry[objectID];
     if (existingNode != nil) {
         _size -= [(SPRecord *)(existingNode.data) size];

@@ -20,7 +20,6 @@
 		2262A4DE1B40A19000AFFCF9 /* SPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */; };
 		2262A4E11B412EB800AFFCF9 /* SPFileCahceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */; };
 		2262A4E41B42519000AFFCF9 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */; };
-		8462981B892C42BD81B21C8B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E71145F5944A4DB05160DA /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		22264FF61B395533000B7B17 /* SPSecurityStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSecurityStore.m; sourceTree = "<group>"; };
 		2261DCBC1B43C4B100C470B4 /* SPNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPNode.h; sourceTree = "<group>"; };
 		2261DCBE1B43C4FE00C470B4 /* SPNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPNode.m; sourceTree = "<group>"; };
-		2262A4DA1B3F7E7E00AFFCF9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2262A4DB1B3F7F4E00AFFCF9 /* SPFileCache+Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPFileCache+Prefix.pch"; sourceTree = "<group>"; };
 		2262A4DC1B40A19000AFFCF9 /* SPCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCacheManager.h; sourceTree = "<group>"; };
 		2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCacheManager.m; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 		2262A4E21B42519000AFFCF9 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
 		2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 		31E71145F5944A4DB05160DA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8462981B892C42BD81B21C8B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +105,6 @@
 				22264FC71B27D00F000B7B17 /* SPFileCache */,
 				22264FD41B27D00F000B7B17 /* SPFileCacheTests */,
 				22264FC61B27D00F000B7B17 /* Products */,
-				DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */,
 				1325094831BC4D689C599EED /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -170,7 +165,6 @@
 			children = (
 				22264FE51B391A6F000B7B17 /* SPLinkedList.h */,
 				22264FE61B391A6F000B7B17 /* SPLinkedList.m */,
-				2262A4DA1B3F7E7E00AFFCF9 /* Constants.h */,
 				2261DCBC1B43C4B100C470B4 /* SPNode.h */,
 				2261DCBE1B43C4FE00C470B4 /* SPNode.m */,
 			);
@@ -206,11 +200,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22264FD91B27D00F000B7B17 /* Build configuration list for PBXNativeTarget "SPFileCache" */;
 			buildPhases = (
-				36E91A334C3B4A55AB93506B /* Check Pods Manifest.lock */,
 				22264FC11B27D00F000B7B17 /* Sources */,
 				22264FC21B27D00F000B7B17 /* Frameworks */,
 				22264FC31B27D00F000B7B17 /* CopyFiles */,
-				AAC25FE747AB43F98A75AF88 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,39 +275,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		36E91A334C3B4A55AB93506B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AAC25FE747AB43F98A75AF88 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		22264FC11B27D00F000B7B17 /* Sources */ = {
@@ -434,7 +393,6 @@
 		};
 		22264FDA1B27D00F000B7B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "SPFileCache/SPFileCache+Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
@@ -445,7 +403,6 @@
 		};
 		22264FDB1B27D00F000B7B17 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE9133D0F90F4A9680A4A4B8 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PREFIX_HEADER = "SPFileCache/SPFileCache+Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";

@@ -76,7 +76,7 @@
 -(BOOL)isValid
 {
     SPSecurityStore *securityStore = [SPSecurityStore defaultStore];
-    NSData *newHash = [securityStore hashForVersion:self.version withObjectID:self.objectID andObject:[self readData]];
+    NSData *newHash = [securityStore hashForVersion:self.version objectID:self.objectID andObject:[self readData]];
     return [newHash isEqualToData:self.hash];
 }
 
@@ -102,7 +102,7 @@
     SPSecurityStore *securityStore = [SPSecurityStore defaultStore];
     NSMutableData *fileContents = [NSMutableData data];
     [fileContents appendData:[NSData dataWithBytes:&_version length:sizeof(_version)]];
-    [fileContents appendData:[securityStore hashForVersion:self.version withObjectID:self.objectID andObject:data]];
+    [fileContents appendData:[securityStore hashForVersion:self.version objectID:self.objectID andObject:data]];
     [fileContents appendData:data];
     
     NSError *error;

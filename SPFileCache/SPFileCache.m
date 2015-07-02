@@ -19,15 +19,15 @@
 @property(nonatomic, assign) NSUInteger maxSize;
 
 -(id)initWithPath:(NSString*)path maxSize:(NSUInteger)maxSize cache:(SPLRUCache *)cache;
--(BOOL)isObjectIDValid:(NSData *)objectID;
--(BOOL)isObjectValid:(NSData *)object;
+-(BOOL)validateObjectID:(NSData *)objectID;
+-(BOOL)validateObject:(NSData *)object;
 -(void)removeOverCapacityObjects;
 
 @end
 
 @implementation SPFileCache
 
-#define kCacheRootFolderName @"SPCACHE"
+#define kCacheRootFolderName @"SPDATA"
 
 #define kDomain @"com.spotify.SPCache"
 #define kRecordNotFound 1
@@ -70,7 +70,7 @@
 
 -(BOOL)containsObjectWithID:(NSData *)objectID
 {
-    if (![self isObjectIDValid:objectID]) {
+    if (![self validateObjectID:objectID]) {
         return NO;
     }
     return ([self.cache recordWithID:objectID] != nil);
@@ -78,7 +78,7 @@
 
 -(NSData*)objectWithID:(NSData *)objectID error:(NSError *__autoreleasing *)error
 {
-    if (![self isObjectIDValid:objectID]) {
+    if (![self validateObjectID:objectID]) {
         if (error != NULL) {
             *error = [NSError errorWithDomain:kDomain
                                          code:kObjectIDInvalid
@@ -113,47 +113,43 @@
 {
     BOOL success = NO;
     
-    if (![self isObjectIDValid:objectID] || ![self isObjectValid:object]) {
-        DLog(@"ObjectID should be 0B < objectID <= 32B and Object should be 10B <= object <= 10MB");
-        return success;
-    }
-    
-    SPRecord *record = [self.cache recordWithID:objectID];
-    if (record != nil) {
-        success = [record writeData:object];
-        if (success) {
-            [self.cache touchRecordWithID:objectID];
+    if ([self validateObjectID:objectID andObject:object]) {
+        SPRecord *record = [self.cache recordWithID:objectID];
+        if (record != nil) {
+            success = [record writeData:object];
+            if (success) {
+                [self.cache touchRecordWithID:objectID];
+            }
+        } else {
+            SPSecurityStore *securityStore = [SPSecurityStore defaultStore];
+            record = [SPRecord recordWithObjectID: objectID
+                                       version:[securityStore version]
+                                      andRootPath:self.rootPath];
+            success = [record writeData:object];
+            if (success) {
+                [self.cache setRecord:record withID:objectID];
+            }
         }
-    } else {
-        SPSecurityStore *securityStore = [SPSecurityStore defaultStore];
-        record = [SPRecord recordWithObjectID: objectID
-                                   version:[securityStore version]
-                                  andRootPath:self.rootPath];
-        success = [record writeData:object];
-        if (success) {
-            [self.cache setRecord:record withID:objectID];
-        }
+        
+        [self removeOverCapacityObjects];
     }
-    
-    [self removeOverCapacityObjects];
     
     return success;
 }
 
 -(BOOL)removeObjectWithID:(NSData *)objectID
 {
-    if (![self isObjectIDValid:objectID]) {
-        return NO;
+    BOOL removed = NO;
+    if ([self validateObjectID:objectID]) {
+        SPRecord *record = [self.cache recordWithID:objectID];
+        [self.cache removeRecordWithID:objectID];
+        removed = [record removeData];
+        if (!removed) {
+            // if we failed to remove the data add the record back.
+            [self.cache setRecord:record withID:objectID];
+        }
     }
-    
-    SPRecord *record = [self.cache recordWithID:objectID];
-    [self.cache removeRecordWithID:objectID];
-    if (![record removeData]) {
-        // if we failed to remove the data add the record back.
-        [self.cache setRecord:record withID:objectID];
-        return NO;
-    }
-    return YES;
+    return removed;
 }
 
 -(NSUInteger)size
@@ -163,21 +159,38 @@
 
 -(void)setMaxSize:(NSUInteger)maxSize
 {
-    _maxSize = maxSize;
-    [self removeOverCapacityObjects];
-    SPCacheManager *cacheManager = [SPCacheManager defaultManager];
-    [cacheManager setMaxCacheSize:maxSize atPath:self.rootPath];
+    if (maxSize > 0) {
+        _maxSize = maxSize;
+        [self removeOverCapacityObjects];
+        SPCacheManager *cacheManager = [SPCacheManager defaultManager];
+        [cacheManager setMaxCacheSize:maxSize atPath:self.rootPath];
+    }
 }
         
         
 #pragma mark -
 #pragma mark Private Methods
--(BOOL)isObjectIDValid:(NSData *)objectID
+-(BOOL)validateObjectID:(NSData *)objectID andObject:(NSData *)object
+{
+    if (![self validateObjectID:objectID] || ![self validateObject:object]) {
+        DLog(@"ObjectID should be 0B < objectID <= 32B and Object should be 10B <= object <= 10MB");
+        return NO;
+    }
+    
+    if ((object.length + objectID.length) > _maxSize) {
+        DLog(@"This object is too big for the cache.");
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(BOOL)validateObjectID:(NSData *)objectID
 {
     return (objectID.length > 0 && objectID.length <= kObjectIDMaxSize);
 }
 
--(BOOL)isObjectValid:(NSData *)object
+-(BOOL)validateObject:(NSData *)object
 {
     return (object.length >= k10B && object.length <= k10MB);
 }

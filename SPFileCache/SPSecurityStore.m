@@ -51,8 +51,7 @@ static dispatch_once_t onceToken;
     return kVersion;
 }
 
-
--(NSData *)hashForVersion:(NSInteger)version withObjectID:(NSData *)objectID andObject:(NSData*)object
+-(NSData *)hashForVersion:(NSInteger)version objectID:(NSData *)objectID andObject:(NSData*)object
 {
 
     NSMutableData *hashableData = [[NSMutableData alloc] init];
@@ -60,6 +59,7 @@ static dispatch_once_t onceToken;
     [hashableData appendData:objectID];
     [hashableData appendData:object];
     [hashableData appendData:[self.secrets[@(version)] dataUsingEncoding:NSUTF8StringEncoding]];
+    
     unsigned int outputLength = CC_SHA1_DIGEST_LENGTH;
     unsigned char output[outputLength];
     

@@ -19,9 +19,7 @@
 @implementation SPFileCahceTest
 
 #define kFileCachPath @"/Users/tima/Documents/Projects/SPFileCache/SPFileCacheTests"
-#define kCachFolder @"SPCACHE"
-//#define kTestFile @"/Users/tima/Music/iTunes/iTunes\ Media/Music/Thirsty\ Merc/Slideshows/02\ 20\ Good\ Reasons.mp3"
-//#define kObjectHexID @"C606C11C4048780FE2A650BBD5AB4820DD3624BBDCA37153BF01D36E17514D9B"
+#define kCachFolder @"SPDATA"
 
 #define kObjectIDSize 32
 #define kObjectSize (1024 * 1024) * 10

@@ -12,7 +12,7 @@
 
 +(SPSecurityStore *)defaultStore;
 -(NSInteger)version;
--(NSData *)hashForVersion:(NSInteger)version withObjectID:(NSData *)objectID andObject:(NSData*)object;
+-(NSData *)hashForVersion:(NSInteger)version objectID:(NSData *)objectID andObject:(NSData*)object;
 -(NSUInteger)hashLength;
 
 @end
