@@ -86,6 +86,11 @@ static dispatch_once_t onceToken;
     return cache;
 }
 
+/**
+ * Note that the size of the cache isn't tamper proof we just look at the size and if its not
+ * above zero we use our default. Didn't think it was worth going to the effort of storing a
+ * has. Could be a future improvementment if necessary.
+ */
 -(NSUInteger)maxCacheSizeAtPath:(NSString *)path
 {
     NSUInteger maxSize = kDefaultCacheMaxSize;

@@ -18,7 +18,7 @@
 		2261DCBA1B428B6D00C470B4 /* NSData+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 22264FE21B294F6B000B7B17 /* NSData+Extensions.m */; };
 		2261DCBF1B43C4FE00C470B4 /* SPNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261DCBE1B43C4FE00C470B4 /* SPNode.m */; };
 		2262A4DE1B40A19000AFFCF9 /* SPCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */; };
-		2262A4E11B412EB800AFFCF9 /* SPFileCahceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */; };
+		2262A4E11B412EB800AFFCF9 /* SPFileCacheTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E01B412EB800AFFCF9 /* SPFileCacheTest.m */; };
 		2262A4E41B42519000AFFCF9 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		2262A4DB1B3F7F4E00AFFCF9 /* SPFileCache+Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SPFileCache+Prefix.pch"; sourceTree = "<group>"; };
 		2262A4DC1B40A19000AFFCF9 /* SPCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPCacheManager.h; sourceTree = "<group>"; };
 		2262A4DD1B40A19000AFFCF9 /* SPCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPCacheManager.m; sourceTree = "<group>"; };
-		2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFileCahceTest.m; sourceTree = "<group>"; };
+		2262A4E01B412EB800AFFCF9 /* SPFileCacheTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPFileCacheTest.m; sourceTree = "<group>"; };
 		2262A4E21B42519000AFFCF9 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
 		2262A4E31B42519000AFFCF9 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
 		31E71145F5944A4DB05160DA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				22264FD51B27D00F000B7B17 /* Supporting Files */,
-				2262A4E01B412EB800AFFCF9 /* SPFileCahceTest.m */,
+				2262A4E01B412EB800AFFCF9 /* SPFileCacheTest.m */,
 			);
 			path = SPFileCacheTests;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2261DCBA1B428B6D00C470B4 /* NSData+Extensions.m in Sources */,
-				2262A4E11B412EB800AFFCF9 /* SPFileCahceTest.m in Sources */,
+				2262A4E11B412EB800AFFCF9 /* SPFileCacheTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
